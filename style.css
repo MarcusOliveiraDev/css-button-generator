@@ -1,0 +1,54 @@
+body{
+    font-family: Helvetica;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+input{
+    width: 100%;
+}
+
+.entradas{
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 25%;
+    height: 100%;
+}
+
+#criar{
+    margin: 20px;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0px 6px 20px 0px rgba(0, 0, 0, 0.2);
+}
+#estilo{
+    margin: 20px;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 6px 20px 0px rgba(0, 0, 0, 0.2);
+}
+#elemento{
+    margin: 0px;
+    padding: 0px;
+}
+
+.conteudo{
+    position: absolute;
+    left: 25%;
+    top: 0px;
+    width: calc(75% - 80px);
+    height: calc(100% - 80px);
+    padding: 40px;
+}
+
+#selecao{
+    position: absolute;
+    border: solid 2px blue;
+}
+#selecao-mouse{
+    position: absolute;
+    border: dashed 1px blue;
+}
+#filtro-codigo{
+    opacity: 0;
+}

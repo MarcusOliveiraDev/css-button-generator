@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <title>Editor v1</title>
+</head>
+<body>
+
+    <div id="selecao"></div>
+    <div id="selecao-mouse"></div>
+
+    <section class="entradas">
+        <div id="criar">
+            <span>texto</span>
+            <input id="texto" type="text">
+            <span>url</span>
+            <input id="url" type="text"><br><br>
+            <button onclick="criar()">Criar</button>
+        </div>
+        <div id="estilo">
+            <p id="elemento"></p>
+            <span>padding:</span> 
+            <input id="padding" type="text">
+            <span>background-color:</span> 
+            <input id="background-color" type="text">
+            <span>color:</span> 
+            <input id="color" type="text">
+            <span>border-radius:</span> 
+            <input id="border-radius" type="text">
+            <span>font-size:</span> 
+            <input id="font-size" type="text">
+            <br><br>
+            <button onclick="estilizar()">Aplicar</button>
+        </div>
+    </section>
+
+    <section id="conteudo" class="conteudo">
+
+    </section>
+
+    <script src="script.js"></script>
+    
+</body>
+</html>
