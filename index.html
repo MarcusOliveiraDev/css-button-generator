@@ -28,12 +28,27 @@
             <input id="background-color" type="text">
             <span>color:</span> 
             <input id="color" type="text">
+            <span>border:</span> =
+            <input id="border" type="text">
             <span>border-radius:</span> 
             <input id="border-radius" type="text">
+            <span>font-family:</span> =
+            <input id="font-family" type="text">
             <span>font-size:</span> 
             <input id="font-size" type="text">
+            <span>box-shadow:</span> =
+            <input id="box-shadow" type="text">
             <br><br>
             <button onclick="estilizar()">Aplicar</button>
+        </div>
+        <div id="codigo">
+            <p id="elemento"></p>
+            <span>código selecionado:</span> 
+            <textarea type="textarea" id='text-code' style="height: 6vh; resize: none; width: 100%;"></textarea>
+            <br><br>
+            <button onclick="exportar()">exportar</button>
+            <button onclick="importar()">importar</button>
+            <input type="file" id="arquivo" accept="json/*">
         </div>
     </section>
 
