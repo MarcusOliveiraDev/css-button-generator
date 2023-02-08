@@ -40,8 +40,8 @@ let arquivo = document.getElementById("arquivo");
 //função para criar botão
 function criar(){
 
-    texto = document.getElementById("texto").value;
-    url = document.getElementById("url").value;
+    texto = "botão";
+    url = "https://";
     conteudo = document.getElementById("conteudo");
 
     confirmarcriar ()
@@ -56,9 +56,26 @@ function confirmarcriar (){
     texto = texto.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
     url = url.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
 
-    conteudo.insertAdjacentHTML('beforeend', '<p style="text-align:center;"><a href='+url+'><button id='+identificador+'>'+texto+'</button></a></p>');
     codigo[identificador+'-html-url'] = url;
     codigo[identificador+'-html-texto'] = texto;
+
+    if(result == undefined){
+        conteudo.insertAdjacentHTML('beforeend', '<div style="text-align:center; margin-bottom:20px;"><a draggable="false" href='+url+'><button id='+identificador+'>'+texto+'</button></a></div>');
+    }else{
+        result.insertAdjacentHTML('afterend', '<div style="text-align:center; margin-bottom:20px;"><a draggable="false" href='+url+'><button id='+identificador+'>'+texto+'</button></a></div>');
+
+        const cards = conteudo.children;
+        for (let refer_card of cards) {
+            result = refer_card;
+            let pai = result.children;
+
+            for (let refer_card_1 of pai) {
+                codigo[Array.prototype.indexOf.call (conteudo.children, result)+'-html-indice'] = refer_card_1.children[0].id;
+            }
+
+    }
+        result = undefined;
+    }
 
     if (codigo[identificador+'-css'] == undefined){
         codigo[identificador+'-css'] = "";
@@ -67,7 +84,53 @@ function confirmarcriar (){
     }  
 
     caixaselecionada();
-} 
+}
+
+
+
+//arrastar e soltar
+let result;
+document.addEventListener("dragstart", (e) => {});
+
+conteudo.addEventListener("dragover", (e) =>{
+
+    const cards = conteudo.children;
+  
+    for (let refer_card of cards) {
+      const box = refer_card.getBoundingClientRect();
+      const boxCenterY = box.y + box.height / 2;
+  
+      if (e.clientY >= boxCenterY) result = refer_card;
+    }
+
+    event.preventDefault();
+});
+
+document.addEventListener("drop", (e) => {
+    criar();
+});
+
+
+
+function aplicarconteudo(){
+
+    texto = document.getElementById("texto").value;
+    url = document.getElementById("url").value;
+    let identificadoraplicar = document.getElementById(identificador);
+
+    //escapando caracteres especiais
+    texto = texto.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
+    url = url.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
+
+    identificadoraplicar.innerText = texto;
+    identificadoraplicar.parentNode.href = url;
+    codigo[identificador+'-html-url'] = url;
+    codigo[identificador+'-html-texto'] = texto;
+
+    caixaselecionada();
+
+    location.href = "#estilo";
+}
 
 
 
@@ -80,6 +143,14 @@ conteudo.addEventListener('click', function(e) {
 });
 
 function caixaselecionada (){
+
+    if(identificador == "conteudo"){
+        location.href = "#modelos";
+        return;
+    }else{
+        location.href = "#criar";
+    }
+
     //escrever id do elemento selecionado
     elemento.innerText = identificador; 
     elemento.style.paddingBottom = "10px";
@@ -105,14 +176,21 @@ function caixaselecionada (){
     fontsize.value = bt.style.fontSize;
     boxshadow.value = bt.style.boxShadow;
 
+    texto = document.getElementById("texto");
+    url = document.getElementById("url");
+    let identificadoraplicar = document.getElementById(identificador);
+
+    texto.value = identificadoraplicar.innerText;
+    url.value = identificadoraplicar.parentNode.href;
+
     //caixa de seleção
     selecao = document.getElementById("selecao");
     bt = document.getElementById(identificador).getBoundingClientRect();
 
-    selecao.style.top = bt.y-2+'px';
-    selecao.style.left = bt.x-1+'px';
-    selecao.style.height = bt.height+2+'px';
-    selecao.style.width = bt.width+1+'px';
+    selecao.style.top = bt.y-3+'px';
+    selecao.style.left = bt.x-3+'px';
+    selecao.style.height = bt.height+4+'px';
+    selecao.style.width = bt.width+4+'px';
 
     mostrartextcodigo()
 }
@@ -126,14 +204,26 @@ conteudo.onmouseover = function(e) {
     selecaomouse = document.getElementById("selecao-mouse");
     identificador2 = e.target.id;
 
-    if (identificador2){
-        bt = document.getElementById(identificador2).getBoundingClientRect();
+    if (identificador2 != "conteudo"){
+        if(identificador2){
+            bt = document.getElementById(identificador2).getBoundingClientRect();
 
-        selecaomouse.style.top = bt.y-2+'px';
-        selecaomouse.style.left = bt.x-1+'px';
-        selecaomouse.style.height = bt.height+2+'px';
-        selecaomouse.style.width = bt.width+1+'px';
+            selecaomouse.style.top = bt.y-3+'px';
+            selecaomouse.style.left = bt.x-3+'px';
+            selecaomouse.style.height = bt.height+4+'px';
+            selecaomouse.style.width = bt.width+4+'px';
+        }
+    }else{
+        if(identificador2){
+            bt = document.getElementById(identificador2).getBoundingClientRect();
+
+            selecaomouse.style.top = bt.y+1+'px';
+            selecaomouse.style.left = bt.x+1+'px';
+            selecaomouse.style.height = bt.height-4+'px';
+            selecaomouse.style.width = bt.width-4+'px';
+        }
     }
+    
 }
 
 
@@ -141,7 +231,7 @@ conteudo.onmouseover = function(e) {
 //função mostrar código
 function mostrartextcodigo(){
     mostrarcodigo = document.getElementById("text-code");
-    mostrarcodigo.value = '<a href='+url+'><button id='+identificador+'>'+texto+'</button></a><style>#'+identificador+'{'+codigo[identificador+'-css']+'}</style>';
+    mostrarcodigo.value = '<a href='+url.value+'><button id='+identificador+'>'+texto.value+'</button></a><style>#'+identificador+'{'+codigo[identificador+'-css']+'}</style>';
 }
 
 
@@ -185,9 +275,9 @@ arquivo.addEventListener('change', function () {
 
         Object.assign(importcodigo, JSON.parse(varcodigo));
 
-        for (let loop = 1; loop <= (Object.keys(importcodigo).length)/3; loop ++){
-            url = importcodigo["a"+loop+"-html-url"];
-            texto = importcodigo["a"+loop+"-html-texto"];
+        for (let loop = 1; loop <= (Object.keys(importcodigo).length)/4; loop ++){
+            url = importcodigo[importcodigo[loop+"-html-indice"]+"-html-url"];
+            texto = importcodigo[importcodigo[loop+"-html-indice"]+"-html-texto"];
             confirmarcriar ();
             //selecionar botão por id
             bt = document.getElementById(identificador);

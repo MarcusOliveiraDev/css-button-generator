@@ -13,15 +13,20 @@
     <div id="selecao-mouse"></div>
 
     <section class="entradas">
+        <div id="modelos" style="width: calc(100% - 100px);">
+            <a draggable="false" href="#criar"><button onclick="criar()">Criar botão</button></a>
+            <a draggable="false" href="#codigo"><button>codigo</button></a>
+            <div draggable="true" style="background-color: rgb(225, 225, 225); margin: 10px 0px; padding: 10px; border-radius: 6px;">modelo 1 >></div>
+        </div>
         <div id="criar">
+            <p id="elemento"></p>
             <span>texto</span>
             <input id="texto" type="text">
             <span>url</span>
             <input id="url" type="text"><br><br>
-            <button onclick="criar()">Criar</button>
+            <button draggable="false" onclick="aplicarconteudo()">Estilo</button>
         </div>
         <div id="estilo">
-            <p id="elemento"></p>
             <span>padding:</span> 
             <input id="padding" type="text">
             <span>background-color:</span> 
@@ -39,21 +44,21 @@
             <span>box-shadow:</span> =
             <input id="box-shadow" type="text">
             <br><br>
-            <button onclick="estilizar()">Aplicar</button>
+            <button draggable="false" onclick="estilizar()">Aplicar</button>
         </div>
         <div id="codigo">
             <p id="elemento"></p>
             <span>código selecionado:</span> 
             <textarea type="textarea" id='text-code' style="height: 6vh; resize: none; width: 100%;"></textarea>
             <br><br>
-            <button onclick="exportar()">exportar</button>
-            <button onclick="importar()">importar</button>
-            <input type="file" id="arquivo" accept="json/*">
+            <button draggable="false" onclick="exportar()">exportar</button>
+            <button draggable="false" onclick="importar()">importar</button>
+            <input draggable="false" type="file" id="arquivo" accept="json/*">
         </div>
     </section>
 
     <section id="conteudo" class="conteudo">
-
+        <div></div>
     </section>
 
     <script src="script.js"></script>

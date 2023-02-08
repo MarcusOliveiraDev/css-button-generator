@@ -15,39 +15,73 @@ input{
     height: 100%;
 }
 
-#criar{
+#modelos{
     position: absolute;
-    height: calc(27.5vh - 90px);
+    height: calc(100vh - 100px);
     top: 0vh;
-    margin: 20px 20px 10px 20px;
+    margin: 20px 20px 20px 20px;
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0px 6px 20px 0px rgba(0, 0, 0, 0.2);
     overflow-y: auto;
+    background-color: white;
+    z-index: 5;
+}
+#criar{
+    position: absolute;
+    height: calc(100vh - 100px);
+    top: 0vh;
+    margin: 20px 20px 20px 20px;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 6px 20px 0px rgba(0, 0, 0, 0.2);
+    overflow-y: auto;
+    background-color: white;
+    display: none;
+    z-index: 1;
+}
+#criar:target{
+    z-index: 10;
+    display: block;
 }
 #estilo{
     position: absolute;
-    height: calc(45vh - 80px);
-    top: 27.5vh;
-    margin: 10px 20px 10px 20px;
+    height: calc(100vh - 100px);
+    top: 0vh;
+    margin: 20px 20px 20px 20px;
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0px 6px 20px 0px rgba(0, 0, 0, 0.2);
     overflow-y: auto;
+    background-color: white;
+    display: none;
+    z-index: 1;
+}
+#estilo:target{
+    z-index: 10;
+    display: block;
 }
 #elemento{
     margin: 0px;
     padding: 0px;
+    background-color: white;
 }
 #codigo{
     position: absolute;
-    height: calc(27.5vh - 90px);
-    top: 72.5vh;
-    margin: 10px 20px 20px 20px;
+    height: calc(100vh - 100px);
+    top: 0vh;
+    margin: 20px 20px 20px 20px;
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0px 6px 20px 0px rgba(0, 0, 0, 0.2);
     overflow-y: auto;
+    background-color: white;
+    display: none;
+    z-index: 1;
+}
+#codigo:target{
+    z-index: 10;
+    display: block;
 }
 
 .conteudo{
