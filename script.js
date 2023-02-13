@@ -44,7 +44,9 @@ function criar(){
     url = "https://";
     conteudo = document.getElementById("conteudo");
 
-    confirmarcriar ()
+    if(conteudo.childElementCount <= 5){
+        confirmarcriar ();
+    }
 
 };
 
@@ -60,9 +62,9 @@ function confirmarcriar (){
     codigo[identificador+'-html-texto'] = texto;
 
     if(result == undefined){
-        conteudo.insertAdjacentHTML('beforeend', '<div style="text-align:center; margin-bottom:20px;"><a draggable="false" href='+url+'><button id='+identificador+'>'+texto+'</button></a></div>');
+        conteudo.insertAdjacentHTML('beforeend', '<div style="text-align:center; margin-bottom:50px;"><a draggable="false" href='+url+'><button draggable="true" id='+identificador+'>'+texto+'</button></a></div>');
     }else{
-        result.insertAdjacentHTML('afterend', '<div style="text-align:center; margin-bottom:20px;"><a draggable="false" href='+url+'><button id='+identificador+'>'+texto+'</button></a></div>');
+        result.insertAdjacentHTML('afterend', '<div style="text-align:center; margin-bottom:50px;"><a draggable="false" href='+url+'><button draggable="true" id='+identificador+'>'+texto+'</button></a></div>');
 
         const cards = conteudo.children;
         for (let refer_card of cards) {
@@ -73,7 +75,7 @@ function confirmarcriar (){
                 codigo[Array.prototype.indexOf.call (conteudo.children, result)+'-html-indice'] = refer_card_1.children[0].id;
             }
 
-    }
+        }
         result = undefined;
     }
 
@@ -88,27 +90,80 @@ function confirmarcriar (){
 
 
 
-//arrastar e soltar
+//arrastar e soltar e mover
 let result;
-document.addEventListener("dragstart", (e) => {});
+let modelo1 = document.getElementById("modelo1");
+let pegar;
 
 conteudo.addEventListener("dragover", (e) =>{
 
     const cards = conteudo.children;
-  
+
     for (let refer_card of cards) {
-      const box = refer_card.getBoundingClientRect();
-      const boxCenterY = box.y + box.height / 2;
-  
-      if (e.clientY >= boxCenterY) result = refer_card;
+    const box = refer_card.getBoundingClientRect();
+    const boxCenterY = box.y + box.height / 2;
+
+    if (e.clientY >= boxCenterY) result = refer_card;
     }
 
     event.preventDefault();
+    
 });
 
-document.addEventListener("drop", (e) => {
-    criar();
+let entradas = document.getElementById("entradas");
+entradas.addEventListener("dragover", (e) =>{
+    result = undefined;  
 });
+
+//chamar para criar
+modelo1.addEventListener("dragend", (e) => {
+    if(result.parentNode.id == "conteudo"){
+        criar();
+    }
+});
+
+//mover botões
+
+document.addEventListener("dragstart", (e) =>{
+    pegar = document.getElementById(e.target.id);
+    console.log(e.target.id);
+    pegar.addEventListener("dragend", (e) => {
+        if(1 == 1){
+            console.log(pegar);
+            mover();
+        }
+    });
+})
+
+function mover(){
+
+    let pegar2 = pegar.parentNode.parentNode;
+    let pegar3 = pegar2.outerHTML;
+
+    console.log(pegar2);
+    console.log(result);
+
+    if (result == pegar2 || result == undefined){}else{
+
+        pegar2.parentNode.removeChild(pegar2);
+
+        result.insertAdjacentHTML('afterend', pegar3);
+
+        const cards = conteudo.children;
+        for (let refer_card of cards) {
+            result = refer_card;
+            let pai = result.children;
+
+            for (let refer_card_1 of pai) {
+                //codigo[Array.prototype.indexOf.call (conteudo.children, result)+'-html-indice'] = refer_card_1.children[0].id;
+            }
+
+        }
+        result = undefined;
+
+        caixaselecionada ()
+    }
+}
 
 
 
@@ -144,7 +199,7 @@ conteudo.addEventListener('click', function(e) {
 
 function caixaselecionada (){
 
-    if(identificador == "conteudo"){
+    if(identificador == "conteudo" || identificador == undefined || identificador == ''){
         location.href = "#modelos";
         return;
     }else{

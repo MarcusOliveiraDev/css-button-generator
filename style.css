@@ -108,3 +108,28 @@ input{
 #arquivo {
     display: none;
 }
+
+@media (max-width: 768px) {
+    .entradas{
+        position: absolute;
+        left: 0px;
+        top: 65%;
+        width: 100vw;
+        height: 35vh;
+    }
+    #modelos, #criar, #estilo, #codigo{
+        position: absolute;
+        height: calc(100% - 60px);
+        width: calc(100% - 60px) !important;
+        margin: 20px;
+        padding: 10px;
+    }
+    .conteudo{
+        position: absolute;
+        left: 0%;
+        top: 0px;
+        width: calc(100% - 40px);
+        height: calc(65% - 40px);
+        padding: 20px;
+    }
+}
