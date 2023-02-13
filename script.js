@@ -126,10 +126,10 @@ modelo1.addEventListener("dragend", (e) => {
 
 document.addEventListener("dragstart", (e) =>{
     pegar = document.getElementById(e.target.id);
-    console.log(e.target.id);
+    //console.log(e.target.id);
     pegar.addEventListener("dragend", (e) => {
         if(1 == 1){
-            console.log(pegar);
+            //console.log(pegar);
             mover();
         }
     });
@@ -140,8 +140,8 @@ function mover(){
     let pegar2 = pegar.parentNode.parentNode;
     let pegar3 = pegar2.outerHTML;
 
-    console.log(pegar2);
-    console.log(result);
+    //console.log(pegar2);
+    //console.log(result);
 
     if (result == pegar2 || result == undefined){}else{
 
@@ -155,7 +155,7 @@ function mover(){
             let pai = result.children;
 
             for (let refer_card_1 of pai) {
-                //codigo[Array.prototype.indexOf.call (conteudo.children, result)+'-html-indice'] = refer_card_1.children[0].id;
+                codigo[Array.prototype.indexOf.call (conteudo.children, result)+'-html-indice'] = refer_card_1.children[0].id;
             }
 
         }
@@ -330,18 +330,23 @@ arquivo.addEventListener('change', function () {
 
         Object.assign(importcodigo, JSON.parse(varcodigo));
 
-        for (let loop = 1; loop <= (Object.keys(importcodigo).length)/4; loop ++){
-            url = importcodigo[importcodigo[loop+"-html-indice"]+"-html-url"];
-            texto = importcodigo[importcodigo[loop+"-html-indice"]+"-html-texto"];
-            confirmarcriar ();
-            //selecionar botão por id
-            bt = document.getElementById(identificador);
-            console.log(loop +" /--/ "+ (Object.keys(importcodigo).length)/3);
+        if(((Object.keys(importcodigo).length)/4 + num) <= 5){
 
-            bt.style.cssText =  importcodigo["a"+loop+"-css"];
-            codigo["a"+loop+"-css"] = importcodigo["a"+loop+"-css"];
-            caixaselecionada();
+            for (let loop = 1; loop <= (Object.keys(importcodigo).length)/4; loop ++){
+                url = importcodigo[importcodigo[loop+"-html-indice"]+"-html-url"];
+                texto = importcodigo[importcodigo[loop+"-html-indice"]+"-html-texto"];
+                confirmarcriar ();
+                //selecionar botão por id
+                bt = document.getElementById(identificador);
+                //console.log(loop +" /--/ "+ (Object.keys(importcodigo).length)/4);
+
+                bt.style.cssText =  importcodigo[importcodigo[loop+"-html-indice"]+"-css"];
+                codigo[importcodigo[loop+"-html-indice"]+"-css"] = importcodigo["a"+loop+"-css"];
+                caixaselecionada();
+            }
+
         }
+
         arquivo.value = "";
     });
 
