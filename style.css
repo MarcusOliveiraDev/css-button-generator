@@ -11,8 +11,8 @@ input{
     position: absolute;
     left: 0px;
     top: 0px;
-    width: 25%;
-    height: 100%;
+    width: 25vw;
+    height: 100vh;
 }
 
 #modelos{
@@ -88,8 +88,8 @@ input{
     position: absolute;
     left: 25%;
     top: 0px;
-    width: calc(75% - 80px);
-    height: calc(100% - 80px);
+    width: calc(75vw - 80px);
+    height: calc(100vh - 80px);
     padding: 40px;
 }
 
@@ -128,8 +128,8 @@ input{
         position: absolute;
         left: 0%;
         top: 0px;
-        width: calc(100% - 40px);
-        height: calc(65% - 40px);
+        width: calc(100vw - 40px);
+        height: calc(65vh - 40px);
         padding: 20px;
     }
 }
