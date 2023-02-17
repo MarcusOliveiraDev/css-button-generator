@@ -1,7 +1,7 @@
 body{
     font-family: Helvetica;
     overflow-x: hidden;
-    overflow-y: hidden;
+    overflow-y: auto;
 }
 input{
     width: 95%;
@@ -86,7 +86,7 @@ input{
 
 .conteudo{
     position: absolute;
-    left: 25%;
+    left: 25vw;
     top: 0px;
     width: calc(75vw - 80px);
     height: calc(100vh - 80px);
@@ -113,7 +113,7 @@ input{
     .entradas{
         position: absolute;
         left: 0px;
-        top: 65%;
+        top: 65vh;
         width: 100vw;
         height: 35vh;
     }
@@ -126,7 +126,7 @@ input{
     }
     .conteudo{
         position: absolute;
-        left: 0%;
+        left: 0px;
         top: 0px;
         width: calc(100vw - 40px);
         height: calc(65vh - 40px);
