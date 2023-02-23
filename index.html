@@ -13,7 +13,7 @@
     <div id="selecao-mouse"></div>
 
     <section class="entradas" id="entradas">
-        <div id="modelos" style="width: calc(100% - 100px);">
+        <div id="modelos">
             <a draggable="false" href="#criar"><button onclick="criar()">Criar botão</button></a>
             <a draggable="false" href="#codigo"><button>codigo</button></a>
             <div id="modelo1" draggable="true" style="background-color: rgb(225, 225, 225); margin: 10px 0px; padding: 10px; border-radius: 6px;">modelo 1 >></div>
@@ -28,21 +28,21 @@
         </div>
         <div id="estilo">
             <span>padding:</span> 
-            <input id="padding" type="text">
+            <input id="padding" type="text" placeholder="Ex: 0px 0px">
             <span>background-color:</span> 
-            <input id="background-color" type="text">
+            <input id="background-color" type="text" placeholder="Ex: black">
             <span>color:</span> 
-            <input id="color" type="text">
+            <input id="color" type="text" placeholder="Ex: white">
             <span>border:</span> =
-            <input id="border" type="text">
+            <input id="border" type="text" placeholder="Ex: 2px solid">
             <span>border-radius:</span> 
-            <input id="border-radius" type="text">
+            <input id="border-radius" type="text" placeholder="Ex: 10px">
             <span>font-family:</span> =
-            <input id="font-family" type="text">
+            <input id="font-family" type="text" placeholder="Ex: helvetica">
             <span>font-size:</span> 
-            <input id="font-size" type="text">
+            <input id="font-size" type="text" placeholder="Ex: 16px">
             <span>box-shadow:</span> =
-            <input id="box-shadow" type="text">
+            <input id="box-shadow" type="text" placeholder="Ex: 2px 2px 2px 1px rgba(0, 0, 0, 0.2)">
             <br><br>
             <button draggable="false" onclick="estilizar()">Aplicar</button>
         </div>
