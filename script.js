@@ -7,6 +7,11 @@ let num = 0;
 let conteudo = document.getElementById("conteudo");
 let selecao = document.getElementById("selecao");//caixa de seleçao
 let selecaomouse = document.getElementById("selecao");//caixa de seleçao do mouse
+let modelos = document.getElementById("modelos");
+let criar_conteudo = document.getElementById("criar");
+let estilo = document.getElementById("estilo");
+let codigo_conteudo = document.getElementById("codigo");
+
 
 //variaveis de estilo
 let padding = document.getElementById("padding");
@@ -184,7 +189,9 @@ function aplicarconteudo(){
 
     caixaselecionada();
 
-    location.href = "#estilo";
+    estilo.style.cssText = "display: block;";
+    criar_conteudo.style.cssText = "display: none;";
+    codigo_conteudo.style.cssText = "display: none;";
 }
 
 
@@ -200,10 +207,14 @@ conteudo.addEventListener('click', function(e) {
 function caixaselecionada (){
 
     if(identificador == "conteudo" || identificador == undefined || identificador == ''){
-        location.href = "#modelos";
+        criar_conteudo.style.cssText = "display: none;";
+        estilo.style.cssText = "display: none;";
+        codigo_conteudo.style.cssText = "display: none;";
         return;
     }else{
-        location.href = "#criar";
+        criar_conteudo.style.cssText = "display: block;";
+        estilo.style.cssText = "display: none;";
+        codigo_conteudo.style.cssText = "display: none;";
     }
 
     //escrever id do elemento selecionado

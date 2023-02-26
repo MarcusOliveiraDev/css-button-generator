@@ -26,7 +26,6 @@ input{
     box-shadow: 0px 6px 20px 0px rgba(0, 0, 0, 0.2);
     overflow-y: auto;
     background-color: white;
-    z-index: 5;
 }
 #criar{
     position: absolute;
@@ -41,10 +40,6 @@ input{
     display: none;
     z-index: 1;
 }
-#criar:target{
-    z-index: 10;
-    display: block;
-}
 #estilo{
     position: absolute;
     height: calc(100vh - 100px);
@@ -57,10 +52,6 @@ input{
     background-color: white;
     display: none;
     z-index: 1;
-}
-#estilo:target{
-    z-index: 10;
-    display: block;
 }
 #elemento{
     margin: 0px;
@@ -79,10 +70,6 @@ input{
     background-color: white;
     display: none;
     z-index: 1;
-}
-#codigo:target{
-    z-index: 10;
-    display: block;
 }
 
 .conteudo{

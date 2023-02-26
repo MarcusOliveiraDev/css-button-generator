@@ -14,8 +14,8 @@
 
     <section class="entradas" id="entradas">
         <div id="modelos">
-            <a draggable="false" href="#criar"><button onclick="criar()">Criar botão</button></a>
-            <a draggable="false" href="#codigo"><button>codigo</button></a>
+            <button onclick="criar()">Criar botão</button>
+            <button onclick="(function(){criar_conteudo.style.cssText = 'display: none;'; estilo.style.cssText = 'display: none;'; codigo_conteudo.style.cssText = 'display: block;';})()">codigo</button>
             <div id="modelo1" draggable="true" style="background-color: rgb(225, 225, 225); margin: 10px 0px; padding: 10px; border-radius: 6px;">modelo 1 >></div>
         </div>
         <div id="criar">
