@@ -5,6 +5,7 @@ body{
 }
 input{
     width: 95%;
+    margin-bottom: 10px;
 }
 
 .entradas{
@@ -25,7 +26,15 @@ input{
     top: 0vh;
     padding: 30px;
     overflow-y: auto;
+    overflow-x: hidden;
     background-color: white;
+}
+
+#modelos{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
 }
 
 #criar, #estilo, #codigo{

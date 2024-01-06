@@ -113,8 +113,34 @@ function estilizar(){
     bt.style.cssText = "padding:"+padding+";" + "background-color:"+backgroundcolor+";" + "color:"+color+";" + "border:"+border+";" + "border-radius:"+borderradius+";" + "font-family:"+fontfamily+";" + "font-size:"+fontsize+";" + "box-shadow:"+boxshadow+";";
 
     codigo[identificador+'-css'] = "padding:"+padding+";" + "background-color:"+backgroundcolor+";" + "color:"+color+";" + "border:"+border+";" + "border-radius:"+borderradius+";" + "font-family:"+fontfamily+";" + "font-size:"+fontsize+";" + "box-shadow:"+boxshadow+";";
+    
+    moudarcaixaselecao();
+}
 
-    caixaselecionada();
+//função para enviar estilo e conteúdo aos inputs
+function mostrarstyle(){
+
+    //enviar valores para inputs
+    bt = document.getElementById(identificador);
+
+    padding = document.getElementById("padding")
+    backgroundcolor = document.getElementById("background-color");
+    color = document.getElementById("color");
+    border = document.getElementById("border");
+    borderradius = document.getElementById("border-radius");
+    fontfamily = document.getElementById("font-family");
+    fontsize = document.getElementById("font-size");
+    boxshadow = document.getElementById("box-shadow");
+
+    padding.value = bt.style.padding;
+    backgroundcolor.value = bt.style.backgroundColor;
+    color.value = bt.style.color;
+    border.value = bt.style.border;
+    borderradius.value = bt.style.borderRadius;
+    fontfamily.value = bt.style.fontFamily;
+    fontsize.value = bt.style.fontSize;
+    boxshadow.value = bt.style.boxShadow;
+
 }
 
 //função da seleção - caixas de seleção
@@ -137,20 +163,30 @@ function caixaselecionada (){
         estilo.style.cssText = "display: none;";
         codigo_conteudo.style.cssText = "display: none;"; 
 
-        //caixa de seleção
-        selecao = document.getElementById("selecao");
-        bt = document.getElementById(identificador).getBoundingClientRect();
-
-        selecao.style.top = bt.y-3+'px';
-        selecao.style.left = bt.x-3+'px';
-        selecao.style.height = bt.height+4+'px';
-        selecao.style.width = bt.width+4+'px';
+        moudarcaixaselecao();
 
          //escrever id do elemento selecionado
         elemento.innerText = identificador; 
-        elemento.style.paddingBottom = "10px";
+
+        texto = document.getElementById("texto");
+        url = document.getElementById("url");
+        let identificadoraplicar = document.getElementById(identificador);
+
+        texto.value = identificadoraplicar.innerText;
+        url.value = identificadoraplicar.parentNode.href;
     }
 
+}
+
+function moudarcaixaselecao(){
+    //caixa de seleção
+    selecao = document.getElementById("selecao");
+    bt = document.getElementById(identificador).getBoundingClientRect();
+
+    selecao.style.top = bt.y-3+'px';
+    selecao.style.left = bt.x-3+'px';
+    selecao.style.height = bt.height+4+'px';
+    selecao.style.width = bt.width+4+'px';
 }
 
 conteudo.addEventListener('click', function(event){
@@ -182,38 +218,6 @@ conteudo.onmouseover = function(e) {
         }
     }
     
-}
-
-//função para enviar estilo e conteúdo aos inputs
-function mostrarstyle(){
-
-    //enviar valores para inputs
-    bt = document.getElementById(identificador);
-
-    padding = document.getElementById("padding")
-    backgroundcolor = document.getElementById("background-color");
-    color = document.getElementById("color");
-    border = document.getElementById("border");
-    borderradius = document.getElementById("border-radius");
-    fontfamily = document.getElementById("font-family");
-    fontsize = document.getElementById("font-size");
-    boxshadow = document.getElementById("box-shadow");
-
-    padding.value = bt.style.padding;
-    backgroundcolor.value = bt.style.backgroundColor;
-    color.value = bt.style.color;
-    border.value = bt.style.border;
-    borderradius.value = bt.style.borderRadius;
-    fontfamily.value = bt.style.fontFamily;
-    fontsize.value = bt.style.fontSize;
-    boxshadow.value = bt.style.boxShadow;
-
-    texto = document.getElementById("texto");
-    url = document.getElementById("url");
-    let identificadoraplicar = document.getElementById(identificador);
-
-    texto.value = identificadoraplicar.innerText;
-    url.value = identificadoraplicar.parentNode.href;
 }
 
 //função mostrar código

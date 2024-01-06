@@ -14,17 +14,19 @@
 
     <section class="entradas" id="entradas">
         <div class="form" id="modelos">
-            <div style="background-color: rgb(225, 225, 225); margin: 10px 0px; padding: 10px; border-radius: 6px;">
-                <button onclick="criar('bt1')" draggable="false">modelo 1 >></button>
-                <button onclick="criar('bt2')" draggable="false">modelo 2 >></button>
-            </div>
+            <label><strong>Modelos</strong></label>
+            <button onclick="criar('bt1')" draggable="false">modelo 1 >></button>
+            <button onclick="criar('bt2')" draggable="false">modelo 2 >></button>
         </div>
         <div class="form" id="criar">
             <button style="position: absolute; top: 0px; left: 0px;" onclick="conteudo.click()" draggable="false">Voltar</button>
-            <label id="elemento"></label>
-            <div>
-                <button onclick="(function(){criar_conteudo.style.cssText = 'display: none;'; estilo.style.cssText = 'display: none;'; codigo_conteudo.style.cssText = 'display: block;';})();mostrartextcodigo()">codigo</button>
-                <button draggable="false" onclick="irestilo()">Estilo</button>
+            <label><strong>Conteúdo</strong></label>
+            <div style="display: flex;justify-content: space-between;background-color: rgb(225, 225, 225);align-items: center; padding: 5px; border-radius: 5px; margin-bottom: 10px;">
+                <label id="elemento" style="padding: 0px;"></label>
+                <div>
+                    <button onclick="(function(){criar_conteudo.style.cssText = 'display: none;'; estilo.style.cssText = 'display: none;'; codigo_conteudo.style.cssText = 'display: block;';})();mostrartextcodigo()">codigo</button>
+                    <button draggable="false" onclick="irestilo()">Estilo</button>
+                </div>
             </div>
             <label>texto</label>
             <input id="texto" type="text" onkeyup="aplicarconteudo()">
@@ -33,33 +35,28 @@
         </div>
         <div class="form" id="estilo">
             <button style="position: absolute; top: 0px; left: 0px;" onclick="caixaselecionada()" draggable="false">Voltar</button>
+            <label><strong>Estilos</strong></label><br>
             <label>padding:</label> 
-            <input id="padding" type="text" placeholder="Ex: 0px 0px">
+            <input id="padding" type="text" placeholder="Ex: 0px 0px" onkeyup="estilizar()">
             <label>background-color:</label> 
-            <input id="background-color" type="text" placeholder="Ex: black">
+            <input id="background-color" type="text" placeholder="Ex: black" onkeyup="estilizar()">
             <label>color:</label> 
-            <input id="color" type="text" placeholder="Ex: white">
+            <input id="color" type="text" placeholder="Ex: white" onkeyup="estilizar()">
             <label>border:</label> =
-            <input id="border" type="text" placeholder="Ex: 2px solid">
+            <input id="border" type="text" placeholder="Ex: 2px solid" onkeyup="estilizar()">
             <label>border-radius:</label> 
-            <input id="border-radius" type="text" placeholder="Ex: 10px">
+            <input id="border-radius" type="text" placeholder="Ex: 10px" onkeyup="estilizar()">
             <label>font-family:</label> =
-            <input id="font-family" type="text" placeholder="Ex: helvetica">
+            <input id="font-family" type="text" placeholder="Ex: helvetica" onkeyup="estilizar()">
             <label>font-size:</label> 
-            <input id="font-size" type="text" placeholder="Ex: 16px">
+            <input id="font-size" type="text" placeholder="Ex: 16px" onkeyup="estilizar()">
             <label>box-shadow:</label> =
-            <input id="box-shadow" type="text" placeholder="Ex: 2px 2px 2px 1px rgba(0, 0, 0, 0.2)">
-            <br><br>
-            <button draggable="false" onclick="estilizar()">Aplicar</button>
+            <input id="box-shadow" type="text" placeholder="Ex: 2px 2px 2px 1px rgba(0, 0, 0, 0.2)" onkeyup="estilizar()">
         </div>
         <div class="form" id="codigo">
             <button style="position: absolute; top: 0px; left: 0px;" onclick="caixaselecionada()" draggable="false">Voltar</button>
-            <p id="elemento"></p>
-            <label>código selecionado:</label> 
+            <label><strong>Código selecionado:</strong></label> 
             <textarea type="textarea" id='text-code' style="height: 12vh; resize: vertical; width: 100%;"></textarea>
-            <br><br>
-            <button draggable="false" onclick="exportar()">exportar</button>
-            <button draggable="false" onclick="importar()">importar</button>
         </div>
     </section>
 
