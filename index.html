@@ -13,47 +13,53 @@
     <div id="selecao-mouse"></div>
 
     <section class="entradas" id="entradas">
-        <div id="modelos">
-            <button onclick="criar()">Criar botão</button>
-            <button onclick="(function(){criar_conteudo.style.cssText = 'display: none;'; estilo.style.cssText = 'display: none;'; codigo_conteudo.style.cssText = 'display: block;';})()">codigo</button>
-            <div id="modelo1" draggable="true" style="background-color: rgb(225, 225, 225); margin: 10px 0px; padding: 10px; border-radius: 6px;">modelo 1 >></div>
+        <div class="form" id="modelos">
+            <div style="background-color: rgb(225, 225, 225); margin: 10px 0px; padding: 10px; border-radius: 6px;">
+                <button onclick="criar('bt1')" draggable="false">modelo 1 >></button>
+                <button onclick="criar('bt2')" draggable="false">modelo 2 >></button>
+            </div>
         </div>
-        <div id="criar">
-            <p id="elemento"></p>
-            <span>texto</span>
-            <input id="texto" type="text">
-            <span>url</span>
-            <input id="url" type="text"><br><br>
-            <button draggable="false" onclick="aplicarconteudo()">Estilo</button>
+        <div class="form" id="criar">
+            <button style="position: absolute; top: 0px; left: 0px;" onclick="conteudo.click()" draggable="false">Voltar</button>
+            <label id="elemento"></label>
+            <div>
+                <button onclick="(function(){criar_conteudo.style.cssText = 'display: none;'; estilo.style.cssText = 'display: none;'; codigo_conteudo.style.cssText = 'display: block;';})();mostrartextcodigo()">codigo</button>
+                <button draggable="false" onclick="irestilo()">Estilo</button>
+            </div>
+            <label>texto</label>
+            <input id="texto" type="text" onkeyup="aplicarconteudo()">
+            <label>url</label>
+            <input id="url" type="text" onkeyup="aplicarconteudo()"><br><br>
         </div>
-        <div id="estilo">
-            <span>padding:</span> 
+        <div class="form" id="estilo">
+            <button style="position: absolute; top: 0px; left: 0px;" onclick="caixaselecionada()" draggable="false">Voltar</button>
+            <label>padding:</label> 
             <input id="padding" type="text" placeholder="Ex: 0px 0px">
-            <span>background-color:</span> 
+            <label>background-color:</label> 
             <input id="background-color" type="text" placeholder="Ex: black">
-            <span>color:</span> 
+            <label>color:</label> 
             <input id="color" type="text" placeholder="Ex: white">
-            <span>border:</span> =
+            <label>border:</label> =
             <input id="border" type="text" placeholder="Ex: 2px solid">
-            <span>border-radius:</span> 
+            <label>border-radius:</label> 
             <input id="border-radius" type="text" placeholder="Ex: 10px">
-            <span>font-family:</span> =
+            <label>font-family:</label> =
             <input id="font-family" type="text" placeholder="Ex: helvetica">
-            <span>font-size:</span> 
+            <label>font-size:</label> 
             <input id="font-size" type="text" placeholder="Ex: 16px">
-            <span>box-shadow:</span> =
+            <label>box-shadow:</label> =
             <input id="box-shadow" type="text" placeholder="Ex: 2px 2px 2px 1px rgba(0, 0, 0, 0.2)">
             <br><br>
             <button draggable="false" onclick="estilizar()">Aplicar</button>
         </div>
-        <div id="codigo">
+        <div class="form" id="codigo">
+            <button style="position: absolute; top: 0px; left: 0px;" onclick="caixaselecionada()" draggable="false">Voltar</button>
             <p id="elemento"></p>
-            <span>código selecionado:</span> 
-            <textarea type="textarea" id='text-code' style="height: 6vh; resize: none; width: 100%;"></textarea>
+            <label>código selecionado:</label> 
+            <textarea type="textarea" id='text-code' style="height: 12vh; resize: vertical; width: 100%;"></textarea>
             <br><br>
             <button draggable="false" onclick="exportar()">exportar</button>
             <button draggable="false" onclick="importar()">importar</button>
-            <input draggable="false" type="file" id="arquivo" accept="json/*">
         </div>
     </section>
 

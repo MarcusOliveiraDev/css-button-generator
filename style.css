@@ -11,65 +11,25 @@ input{
     position: absolute;
     left: 0px;
     top: 0px;
-    width: 25vw;
-    height: 100vh;
+    width: calc(25vw - 40px);
+    height: calc(100vh - 40px);
+    border-radius: 10px;
+    box-shadow: 0px 6px 20px 0px rgba(0, 0, 0, 0.2);
+    margin: 20px 20px 20px 20px;
 }
 
-#modelos{
+.form{
     position: absolute;
-    height: calc(100vh - 100px);
-    width: calc(100% - 100px);
+    height: calc(100% - 60px);
+    width: calc(100% - 60px);
     top: 0vh;
-    margin: 20px 20px 20px 20px;
     padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0px 6px 20px 0px rgba(0, 0, 0, 0.2);
     overflow-y: auto;
     background-color: white;
 }
-#criar{
-    position: absolute;
-    height: calc(100vh - 100px);
-    top: 0vh;
-    margin: 20px 20px 20px 20px;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0px 6px 20px 0px rgba(0, 0, 0, 0.2);
-    overflow-y: auto;
-    background-color: white;
+
+#criar, #estilo, #codigo{
     display: none;
-    z-index: 1;
-}
-#estilo{
-    position: absolute;
-    height: calc(100vh - 100px);
-    top: 0vh;
-    margin: 20px 20px 20px 20px;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0px 6px 20px 0px rgba(0, 0, 0, 0.2);
-    overflow-y: auto;
-    background-color: white;
-    display: none;
-    z-index: 1;
-}
-#elemento{
-    margin: 0px;
-    padding: 0px;
-    background-color: white;
-}
-#codigo{
-    position: absolute;
-    height: calc(100vh - 100px);
-    top: 0vh;
-    margin: 20px 20px 20px 20px;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0px 6px 20px 0px rgba(0, 0, 0, 0.2);
-    overflow-y: auto;
-    background-color: white;
-    display: none;
-    z-index: 1;
 }
 
 .conteudo{
@@ -89,9 +49,6 @@ input{
     position: absolute;
     border: dashed 1px black;
 }
-#filtro-codigo{
-    opacity: 0;
-}
 
 #arquivo {
     display: none;
@@ -102,15 +59,8 @@ input{
         position: absolute;
         left: 0px;
         top: 65vh;
-        width: 100vw;
-        height: 35vh;
-    }
-    #modelos, #criar, #estilo, #codigo{
-        position: absolute;
-        height: calc(100% - 60px);
-        width: calc(100% - 60px) !important;
-        margin: 20px;
-        padding: 10px;
+        width: calc(100vw - 40px);
+        height: calc(35vh - 40px);
     }
     .conteudo{
         position: absolute;
